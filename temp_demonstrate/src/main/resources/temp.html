@@ -6,8 +6,33 @@
 </head>
 <body>
 <button> press me </button>
+
+<tr>
+    <th >价格</th>
+    <td id="price">12</td>
+</tr>
+<tr>
+    <th>总额</th>
+    <td id="total">0</td>
+</tr>
+
+
+<i id="jstip" style="color: red;" class="fa fa-question-circle-o help-icon" data-toggle="tooltip" data-placement="bottom" data-html='true'
+   data-title="<div style='text-align:left;'><table><tr><td>仅有储备料发货的备货单只能整单终止</td></tr></table></div>"></i>
+
 </body>
 <script>
+    function change(){
+        var price=document.getElementById("price").innerText;
+        var total=document.getElementById("total").innerText;
+        total=price;
+    }
+document.querySelector('button').onclick=change;
+
+
+
+
+
   // const button=document.querySelector('button');
   //
   // button.onclick =function (){
