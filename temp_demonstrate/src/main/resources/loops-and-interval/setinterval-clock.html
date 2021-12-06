@@ -25,8 +25,39 @@
     document.querySelector('.clock').textContent = time;
   }
 
-  displayTime();
-  const createClock = setInterval(displayTime, 1000);
+  let startTime;
+  let counttime;
+  let start=document.getElementById('start');
+  start.addEventListener('click',function (){
+     startTime = Date.now();
+    counttime = setInterval(countTime, 1000);
+  });
+  let stop=document.getElementById('stop');
+  stop.addEventListener('click',function (){
+    stopcount();
+  });
+  let reset=document.getElementById('reset');
+  reset.addEventListener('click',function (){
+    clearInterval(counttime);
+    document.querySelector('.clock').textContent = 0+'小时 '+0+'分钟 '+0+'秒';
+  });
+
+  function countTime(){
+    let counttime=Math.trunc((Date.now() - startTime)/1000);
+
+    let hour=Math.trunc(counttime/3600);
+    let minute=Math.trunc((counttime % 3600)/60);
+    let second=Math.trunc(counttime % 60);
+    document.querySelector('.clock').textContent = hour+'小时 '+minute+'分钟 '+second+'秒';
+  }
+
+  function stopcount(){
+    clearInterval(counttime);
+  }
+
+  //displayTime();
+  //const createClock = setInterval(displayTime, 1000);
+
 </script>
 </body>
 </html>
